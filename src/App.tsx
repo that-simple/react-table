@@ -1,5 +1,109 @@
-export const App = () => {
-    return <div>Simple react-table test page</div>;
-};
+import { useTable } from "../lib/hooks/useTable.tsx";
 
-export default App;
+const MOCK_HEADERS = ["header"];
+const MOCK_ROWS = [
+    "aX9vG8b2",
+    "M5pLgD4t",
+    "yZ7jH1wQ",
+    "hV2bN3rT",
+    "oW6dLzK9",
+    "aM4vY8jP",
+    "gB5pD7tZ",
+    "kT9fR2wQ",
+    "vG3dX1zL",
+    "nJ8hL4pK",
+    "mA0rZ9dV",
+    "qS7gW6vY",
+    "uH2lJ8xQ",
+    "eD5vP3bF",
+    "tW9oZ1hJ",
+    "aX9vG8b2",
+    "M5pLgD4t",
+    "yZ7jH1wQ",
+    "hV2bN3rT",
+    "oW6dLzK9",
+    "aM4vY8jP",
+    "gB5pD7tZ",
+    "kT9fR2wQ",
+    "vG3dX1zL",
+    "nJ8hL4pK",
+    "mA0rZ9dV",
+    "qS7gW6vY",
+    "uH2lJ8xQ",
+    "eD5vP3bF",
+    "tW9oZ1hJ",
+    "aX9vG8b2",
+    "M5pLgD4t",
+    "yZ7jH1wQ",
+    "hV2bN3rT",
+    "oW6dLzK9",
+    "aM4vY8jP",
+    "gB5pD7tZ",
+    "kT9fR2wQ",
+    "vG3dX1zL",
+    "nJ8hL4pK",
+    "mA0rZ9dV",
+    "qS7gW6vY",
+    "uH2lJ8xQ",
+    "eD5vP3bF",
+    "tW9oZ1hJ",
+    "aX9vG8b2",
+    "M5pLgD4t",
+    "yZ7jH1wQ",
+    "hV2bN3rT",
+    "oW6dLzK9",
+    "aM4vY8jP",
+    "gB5pD7tZ",
+    "kT9fR2wQ",
+    "vG3dX1zL",
+    "nJ8hL4pK",
+    "mA0rZ9dV",
+    "qS7gW6vY",
+    "uH2lJ8xQ",
+    "eD5vP3bF",
+    "tW9oZ1hJ",
+    "aX9vG8b2",
+    "M5pLgD4t",
+    "yZ7jH1wQ",
+    "hV2bN3rT",
+    "oW6dLzK9",
+    "aM4vY8jP",
+    "gB5pD7tZ",
+    "kT9fR2wQ",
+    "vG3dX1zL",
+    "nJ8hL4pK",
+    "mA0rZ9dV",
+    "qS7gW6vY",
+    "uH2lJ8xQ",
+    "eD5vP3bF",
+    "tW9oZ1hJ",
+    "aX9vG8b2",
+    "M5pLgD4t",
+    "yZ7jH1wQ",
+    "hV2bN3rT",
+    "oW6dLzK9",
+    "aM4vY8jP",
+    "gB5pD7tZ",
+    "kT9fR2wQ",
+    "vG3dX1zL",
+    "nJ8hL4pK",
+    "mA0rZ9dV",
+    "qS7gW6vY",
+    "uH2lJ8xQ",
+    "eD5vP3bF",
+    "tW9oZ1hJ",
+];
+
+export const App = () => {
+    const { rows, nextPage, prevPage, pageIndex } = useTable({ headers: MOCK_HEADERS, rows: MOCK_ROWS });
+    return (
+        <div>
+            {rows.map((row, index) => (
+                <div key={index}>{index} {row}</div>
+            ))}
+            <div>page: {pageIndex}</div>
+            <button onClick={prevPage}>prev</button>
+            <button onClick={nextPage}>next</button>
+        </div>
+    );
+};
